@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/products', [StripeController::class, 'products']);
 Route::post('/add-product', [StripeController::class , 'productStore']);
@@ -27,3 +27,8 @@ Route::get('/price-list', [StripeController::class , 'priceList']);
 Route::get('/customer-list', [StripeController::class , 'customerList']);
 Route:: post('/create-customer', [StripeController::class , 'customerCreate']);
 Route:: post('/create-subscriptions', [StripeController::class , 'subscriptionsCreate']);
+Route::post('/payment-intent' , [StripeController::class , 'paymentIntent']);
+Route::post('/payment-intent-confirm' , [StripeController::class , 'paymentIntentConfirm']);
+Route::post('/payment-intent-confirm-subscription' , [StripeController::class , 'paymentIntentConfirmSubscription']);
+
+Route::post('payment-process', [StripeController::class , 'paymentProcess']);
